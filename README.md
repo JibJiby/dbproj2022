@@ -3,6 +3,18 @@
 2022 데이터베이스 프로젝트 프론트/백엔드 repo
 프로젝트 솔루션
 
+<br><br>
+
+## 기술 스택
+
+Typescript
+Nestjs
+Handlers
+jquery
+Bootstrap
+
+<br><br>
+
 ## 설치 순서
 
 ### 미리 설치
