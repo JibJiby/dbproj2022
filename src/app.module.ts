@@ -1,3 +1,4 @@
+import path from 'path';
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -12,6 +13,7 @@ import { Project } from './entities/Project';
 import { Role } from './entities/Role';
 import { Staff } from './entities/Staff';
 import { StaffsModule } from './staffs/staffs.module';
+import { ServeStaticModule } from '@nestjs/serve-static';
 
 @Module({
   imports: [
@@ -28,6 +30,9 @@ import { StaffsModule } from './staffs/staffs.module';
       Staff,
     ]),
     StaffsModule,
+    ServeStaticModule.forRoot({
+      rootPath: path.join(__dirname, '..', 'client'),
+    }),
   ],
   controllers: [AppController],
   providers: [AppService, ConfigService],

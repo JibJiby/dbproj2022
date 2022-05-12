@@ -10,10 +10,22 @@ export class AppController {
     return this.appService.getHello();
   }
 
+  @Get('/hi')
+  getHi(): string {
+    return 'hi';
+  }
+
   @Get('/testejs')
   @Render('testejs')
   testejs() {
     const message = 'ejs 테스트입니다. ';
     return { message };
+  }
+
+  @Get('/login')
+  @Render('login')
+  login() {
+    const result = '';
+    return { result };
   }
 }

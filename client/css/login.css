@@ -1,0 +1,23 @@
+/* 공통 스타일링 가져오기 */
+@import 'common.css';
+
+.login-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 40px;
+    
+    margin: 30px auto;
+}
+
+.login-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.login-form form div {
+    margin-bottom: 20px;
+}
