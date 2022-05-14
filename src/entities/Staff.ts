@@ -16,9 +16,8 @@ export class Staff {
   @Column('varchar', { name: 'staff_name', unique: true, length: 50 })
   name: string;
 
-  // TODO:
-  // @Column('varchar', { name: 'social_number', length: 30 })
-  // socialNumber: string;
+  @Column('varchar', { name: 'social_number', length: 30 })
+  socialNumber: string;
 
   @Column('varchar', { name: 'password', length: 100, select: false })
   password: string;
