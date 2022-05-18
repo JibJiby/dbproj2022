@@ -1,0 +1,25 @@
+@import 'common.css';
+
+body {
+  padding-top: 1%;
+  padding-bottom: 1%;
+  padding-left: 3%;
+  padding-right: 3%;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  margin: 30px auto;
+}
+
+div.search {
+  display: flex;
+  margin-bottom: 1%;
+}
+
+button#search {
+  width: 6rem;
+}
