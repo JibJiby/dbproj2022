@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { CreateStaffDto } from '../../users/dto/create-staff.dto';
+import { CreateStaffDto } from '../../staffs/dto/create-staff.dto';
 
 class StaffDto extends CreateStaffDto {
   @ApiProperty({
