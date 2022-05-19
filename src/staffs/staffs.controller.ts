@@ -7,6 +7,7 @@ import {
   Param,
   Delete,
   Query,
+  Redirect,
 } from '@nestjs/common';
 import { StaffsService } from './staffs.service';
 import { CreateStaffDto } from './dto/create-staff.dto';
@@ -28,9 +29,6 @@ export class StaffsController {
 
   @Get()
   async findByName(@Query('name') name: string) {
-    console.log('--------------------name');
-    console.log(name);
-
     return this.staffsService.findByName(name);
   }
 

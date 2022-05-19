@@ -1,9 +1,13 @@
-import { Controller, Get, Render } from '@nestjs/common';
+import { Controller, Get, Query, Render } from '@nestjs/common';
 import { AppService } from './app.service';
+import { StaffsService } from './staffs/staffs.service';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor(
+    private readonly appService: AppService,
+    private readonly staffsService: StaffsService,
+  ) {}
 
   @Get()
   getHello(): string {
@@ -38,7 +42,7 @@ export class AppController {
 
   @Get('/staffs')
   @Render('staffs')
-  staffs() {
+  async staffs(@Query('name') name: string) {
     const staffs = [
       {
         staff_number: 1,
@@ -71,6 +75,24 @@ export class AppController {
         education: '홍익대학교',
       },
     ];
-    return { staffs };
+
+    const finded = await this.staffsService.findByName(name);
+    // console.log('findededed');
+    // console.log(finded);
+    if (finded.length > 0) {
+      console.log({ staffs: finded });
+      return {
+        staffs: finded.map((v) => ({
+          staff_number: v.id,
+          staff_name: v.name,
+          // TODO: 실제 데이터 넣어주기
+          department: '부서 미정',
+          education: v.education === null ? '고졸' : '대졸',
+        })),
+      };
+    } else {
+      console.log({ staffs });
+      return { staffs };
+    }
   }
 }
