@@ -40,6 +40,13 @@ export class AppController {
     return { manage };
   }
 
+  @Get('/project-list')
+  @Render('project-list')
+  projectList() {
+    const message = '';
+    return { message };
+  }
+
   @Get('/staffs')
   @Render('staffs')
   async staffs(@Query('name') name: string) {

@@ -2,12 +2,62 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Client</title>
+    <title>Project</title>
     <!--  -->
   </head>
   <body>
     안녕하세요. <br>
     {{ message }}
     프로젝트 목록 페이지 입니다.
+
+    <h1>Project List</h1>
+
+    <ul>
+        <li>Project/프로젝트</li>
+        <ul>
+          <li>Gives overall information about the project such as which projects are currently in development or which projects has made before</li>
+          <li>현재 개발 중인 프로젝트 또는 이전에 만든 프로젝트와 같은 프로젝트에 대한 전반적인 정보를 제공합니다.</li>
+          <li>Provide information about project_id and client_id, project start and ending date and budget.</li>
+          <li>프로젝트 ID 및 클라이언트 ID, 프로젝트 시작 및 종료 날짜 및 예산에 대한 정보를 제공합니다.</li>
+
+        </ul>
+        <li>Client/고객</li>
+        <ul>
+            <li>Clients can check the process of the current project</li>
+            <li>클라이언트는 현재 프로젝트의 프로세스를 확인할 수 있습니다</li>
+            <li>Client_ID will be provided by project. </li>
+            <li>Client_ID는 프로젝트별로 제공됩니다.</li>
+            <li>Clients can have reviews of staff who worked at the project</li>
+            <li>클라이언트는 프로젝트에서 일한 직원의 리뷰를 가질 수 있습니다</li>
+        </ul>
+        <li>Role/역할</li>
+        <ul>
+          <li>Provides information about who is doing what by using role_type section</li>
+          <li>role_type 섹션을 사용하여 누가 무엇을 하는지에 대한 정보를 제공합니다.</li>
+        </ul>
+        <li>Staff/직원</li>
+        <ul>
+          <li>Every staff has a unique staff number </li>
+          <li>모든 직원에는 고유한 직원 번호가 있습니다.</li>
+          <li>Staff page includes general information such as staff name,social number, education, current salary,incentive,skill set </li>
+          <li>직원 페이지에는 직원 이름, 사회 번호, 학력, 현재 급여, 인센티브, 기술 집합과 같은 일반 정보가 포함되어 있습니다.</li>
+          <li>To be able to see the perosnal information, registration is neccesary. Email address and password will be asked to log in. </li>
+          <li>개인정보 조회를 위해서는 회원가입이 필요합니다. 이메일 주소와 비밀번호는 로그인하라는 메시지가 표시됩니다.</li>
+        </ul>
+        <li>Participation/참여</li>
+         <ul>
+          <li>Gives information about participation of which role has started and ended. </li>
+          <li>어떤 역할이 시작되고 종료되었는지에 대한 정보를 제공합니다.</li>
+          <li>Need staff number and project ID to be able to search </li>
+          <li>검색하려면 직원 번호와 프로젝트 ID가 필요합니다.</li>
+        </ul>
+        <li>Department/부서</li>
+        <ul>
+          <li>List of department names</li>
+          <li>부서 이름 목록</li>
+           <li>Every department has a unique ID </li>
+           <li>부서마다 고유한 ID가 있습니다.</li>
+        </ul>
+    </ul>
   </body>
 </html>
