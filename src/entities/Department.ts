@@ -12,7 +12,6 @@ export class Department {
   /**
    * Relation
    */
-
   @OneToMany(() => Staff, (staff) => staff.Department)
   Staffs: Staff[];
 }
