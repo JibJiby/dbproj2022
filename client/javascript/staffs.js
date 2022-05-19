@@ -1,3 +1,16 @@
+$('.header').click(function (e) {
+  e.preventDefault();
+
+  window.location = '/staffs';
+});
+
+$('input[name=staff]').keydown(function (key) {
+  if (key.keyCode === 13) {
+    //키가 13이면 실행 (엔터는 13)
+    $('button#search').click();
+  }
+});
+
 $('button#search').click(function (e) {
   e.preventDefault();
 
