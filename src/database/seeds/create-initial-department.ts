@@ -11,11 +11,19 @@ export class CreateInitialData implements Seeder {
       .values([
         {
           id: 1,
-          depName: '개발',
+          depName: '백엔드',
         },
         {
           id: 2,
+          depName: '프론트엔드',
+        },
+        {
+          id: 3,
           depName: '마케팅',
+        },
+        {
+          id: 4,
+          depName: '디자인',
         },
       ])
       .execute();

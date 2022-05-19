@@ -8,7 +8,7 @@ import { UpdateStaffDto } from './dto/update-staff.dto';
 @Injectable()
 export class StaffsService {
   constructor(
-    @InjectRepository(Staff) private staffsRepository: Repository<Staff>, // private connection: Connection,
+    @InjectRepository(Staff) private staffsRepository: Repository<Staff>,
   ) {}
 
   create(createStaffDto: CreateStaffDto) {
@@ -16,14 +16,20 @@ export class StaffsService {
     return 'This action adds a new staff';
   }
 
-  findAll() {
-    return `This action returns all staffs`;
+  async findAll() {
+    const result = await this.staffsRepository
+      .createQueryBuilder('staffs')
+      .leftJoinAndSelect('staffs.Department', 'departments')
+      .getMany();
+
+    return result;
   }
 
   async findByName(name: string) {
     const result = await this.staffsRepository
       .createQueryBuilder('staffs')
       .where('staffs.name = :name', { name })
+      .leftJoinAndSelect('staffs.Department', 'departments')
       .getMany();
     if (result) {
       return result;

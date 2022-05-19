@@ -22,10 +22,10 @@ export class StaffsController {
     return this.staffsService.create(createStaffDto);
   }
 
-  // @Get()
-  // async findAll() {
-  //   return this.staffsService.findAll();
-  // }
+  @Get('/all')
+  async findAll() {
+    return this.staffsService.findAll();
+  }
 
   @Get()
   async findByName(@Query('name') name: string) {

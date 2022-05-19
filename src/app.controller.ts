@@ -1,6 +1,13 @@
-import { Controller, Get, Query, Render } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Query,
+  Render,
+  NotFoundException,
+} from '@nestjs/common';
 import { AppService } from './app.service';
 import { StaffsService } from './staffs/staffs.service';
+import { Staff } from './entities/Staff';
 
 @Controller()
 export class AppController {
@@ -50,56 +57,26 @@ export class AppController {
   @Get('/staffs')
   @Render('staffs')
   async staffs(@Query('name') name: string) {
-    const staffs = [
-      {
-        staff_number: 1,
-        staff_name: '현선재',
-        department: '백엔드',
-        education: '명지대학교',
-      },
-      {
-        staff_number: 2,
-        staff_name: '홍길동',
-        department: '프론트엔드',
-        education: '서울대학교',
-      },
-      {
-        staff_number: 3,
-        staff_name: '테스트',
-        department: '마케팅',
-        education: '연세대학교',
-      },
-      {
-        staff_number: 4,
-        staff_name: '홍길동',
-        department: '마케팅',
-        education: '명지대학교',
-      },
-      {
-        staff_number: 5,
-        staff_name: '김형민',
-        department: '디자인',
-        education: '홍익대학교',
-      },
-    ];
-
-    const finded = await this.staffsService.findByName(name);
-    // console.log('findededed');
-    // console.log(finded);
-    if (finded.length > 0) {
-      console.log({ staffs: finded });
-      return {
-        staffs: finded.map((v) => ({
-          staff_number: v.id,
-          staff_name: v.name,
-          // TODO: 실제 데이터 넣어주기
-          department: '부서 미정',
-          education: v.education === null ? '고졸' : '대졸',
-        })),
-      };
-    } else {
-      console.log({ staffs });
-      return { staffs };
+    if (name) {
+      const finded = await this.staffsService.findByName(name);
+      if (finded.length > 0) {
+        return {
+          staffs: finded.map(convertStaff),
+        };
+      }
     }
+
+    // name === undefined 인 경우
+    const allStaffs = await this.staffsService.findAll();
+    return { staffs: allStaffs.map(convertStaff) };
   }
+}
+
+function convertStaff(staff: Staff) {
+  return {
+    staff_number: staff.id,
+    staff_name: staff.name,
+    department: staff.Department?.depName || '',
+    education: staff.education,
+  };
 }
