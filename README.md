@@ -7,10 +7,10 @@
 
 ## 기술 스택
 
-Typescript
-Nestjs
-Handlers
-jquery
+Typescript  
+Nestjs  
+Handlers  
+jquery  
 Bootstrap
 
 <br><br>
@@ -26,7 +26,8 @@ Bootstrap
 
 - node.js
   설치 주소 : https://nodejs.org/ko/
-  확인법
+
+  설치 완료되었는지 확인하는 방법
 
   ```bash
   npm -v
@@ -49,7 +50,9 @@ Bootstrap
 ### Fork
 
 문서 확인하면서 레포 포크하기
-// 노션 주소
+
+문서 주소  
+https://jiby.notion.site/2022-28db9c06800d454da6446def7b37d0d1
 
 <br>
 
@@ -66,7 +69,7 @@ $ npm install
 ### 스키마 생성
 
 MysqlWorkbench나 터미널로 mysql 서버에 접속한다음 아래 쿼리로 스키마 생성하기
-자세한 mysql 서버 접속 방법은 <u>구글링 추천</u>해드립니다.
+자세한 mysql 서버 접속 방법은 <u>구글링 추천</u>해드립니다. 자료가 많으니 공부하시면 쉽게 따라할 수 있을 거에요.
 
 ```bash
 CREATE SCHEMA `dbproj2022` DEFAULT CHARACTER SET utf8mb4 ;
