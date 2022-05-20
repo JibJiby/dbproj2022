@@ -9,7 +9,7 @@
 
 Typescript  
 Nestjs  
-Handlers  
+Handlebars  
 jquery  
 Bootstrap
 
