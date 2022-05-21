@@ -54,6 +54,13 @@ export class AppController {
     return { message };
   }
 
+  @Get('/project/detail')
+  @Render('detail')
+  projectDetail() {
+    const message = '';
+    return { message };
+  }
+
   @Get('/staffs')
   @Render('staffs')
   async staffs(@Query('name') name: string) {

@@ -24,7 +24,7 @@
                             {{!-- TODO: /staffs/signup 과 같은 라우터 로직 추가하고 수정하기  --}}
                             <form action="/auth/login" method="post" name="login">
                                 <div class="form-group">
-                                    l<abel for="exampleInputEmail1">이메일</label>
+                                    <abel for="exampleInputEmail">이메일</label>
                                     <input
                                         type="email"
                                         name="email"
@@ -34,7 +34,7 @@
                                         placeholder="이메일 입력해주세요.">
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">비밀번호</label>
+                                    <label for="exampleInputPassword">비밀번호</label>
                                     <input
                                         type="password"
                                         name="password"
@@ -69,6 +69,22 @@
                             </div>
                             <form action="/auth/signup" name="registration" method="post">
                                 <div class="form-group">
+                                    <label for="exampleInputName">이름</label>
+                                    <input
+                                        type="text"
+                                        name="name"
+                                        id="form-name"
+                                        class="form-control"
+                                        placeholder="이름">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputName">주민번호</label>
+                                    <div class="input-group">
+                                        <input type="text" aria-label="First number" class="form-control" placeholder="앞자리">
+                                        <input type="password" aria-label="Last number" class="form-control" placeholder="뒷자리">
+                                    </div>
+                                </div>
+                                <div class="form-group">
                                     <label for="exampleInputEmail1">이메일</label>
                                     <input
                                         type="email"
@@ -85,7 +101,6 @@
                                         name="password"
                                         id="password"
                                         class="form-control"
-                                        aria-describedby="emailHelp"
                                         placeholder="비밀번호">
                                 </div>
                                 <div class="form-group">
@@ -95,9 +110,24 @@
                                         name="password_confirm"
                                         id="password_confirm"
                                         class="form-control"
-                                        aria-describedby="emailHelp"
                                         placeholder="비밀번호 확인">
                                 </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEducation">학력</label>
+                                    <input
+                                        type="text"
+                                        name="education"
+                                        id="education"
+                                        class="form-control"
+                                        placeholder="학력">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputDepartment">부서</label>
+                                    <select class="form-select" aria-label="Default select example">
+                                        <option selected="selected">부서를 선택해주세요.</option>
+                                    </select>
+                                </div>
+
                                 <div class="col-md-12 text-center mb-3 signup-btn-wrapper">
                                     <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">회원가입 하기</button>
                                 </div>
@@ -115,6 +145,7 @@
             </div>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.js"></script>
     <script
         src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="

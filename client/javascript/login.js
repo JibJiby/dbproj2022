@@ -1,3 +1,30 @@
+// selection option 가져오기
+$(document).ready(function () {
+  $.ajax({
+    method: 'GET',
+    url: `api/departments`,
+    success: function (res) {
+      // console.log('검색 결과');
+      console.log(res);
+
+      const options = res.map(
+        (v) => `<option value=${v.id}>${v.depName}</option>`,
+      );
+
+      //select에 추가하기
+      for (let el of options) {
+        $('.form-group > select').append(el);
+      }
+    },
+    error: function (err) {
+      console.log(err);
+    },
+  });
+});
+
+/*
+ *  EventListener
+ */
 $('#signup').click(function () {
   $('#first').fadeOut('fast', function () {
     $('#second').fadeIn('fast');
@@ -10,28 +37,26 @@ $('#signin').click(function () {
   });
 });
 
-$(function () {
-  $("form[name='login']").validate({
-    rules: {
-      email: {
-        required: true,
-        email: true,
-      },
-      password: {
-        required: true,
-      },
+$("form[name='login']").validate({
+  rules: {
+    email: {
+      required: true,
+      email: true,
     },
-    messages: {
-      email: '이메일을 입력해주세요.',
+    password: {
+      required: true,
+    },
+  },
+  messages: {
+    email: '이메일을 입력해주세요.',
 
-      password: {
-        required: '비밀번호를 입력해주세요.',
-      },
+    password: {
+      required: '비밀번호를 입력해주세요.',
     },
-    submitHandler: function (form) {
-      form.submit();
-    },
-  });
+  },
+  submitHandler: function (form) {
+    form.submit();
+  },
 });
 
 $(function () {
@@ -48,6 +73,10 @@ $(function () {
       password_confirm: {
         required: true,
         minlength: 5,
+      },
+      education: {
+        required: true,
+        minlength: 1,
       },
     },
 
