@@ -1,3 +1,4 @@
+import { IsEmail, IsNotEmpty, IsString } from 'class-validator';
 import {
   Column,
   Entity,
@@ -19,7 +20,10 @@ export class Staff {
   @Column('varchar', { name: 'social_number', length: 30 })
   socialNumber: string;
 
-  @Column('varchar', { name: 'password', length: 100, select: false })
+  @IsString()
+  @IsNotEmpty()
+  // , select: false 제외
+  @Column('varchar', { name: 'password', length: 100 })
   password: string;
 
   @Column('varchar', { nullable: true })
@@ -31,7 +35,9 @@ export class Staff {
   @Column('int', { nullable: true })
   incentive: number;
 
-  @Column('varchar', { nullable: true })
+  @IsEmail()
+  @IsNotEmpty()
+  @Column('varchar', { nullable: true, unique: true })
   email: string;
 
   @Column('varchar', { nullable: true })

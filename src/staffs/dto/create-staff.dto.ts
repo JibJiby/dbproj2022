@@ -6,6 +6,9 @@ export class CreateStaffDto extends PickType(Staff, [
   'email',
   'name',
   'password',
+  'socialNumber',
+  'education',
+  'Department',
 ] as const) {
   @IsEmail()
   @ApiProperty({

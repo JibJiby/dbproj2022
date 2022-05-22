@@ -1,14 +1,35 @@
+import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { join } from 'path';
 import { AppModule } from './app.module';
+import { HttpExceptionFilter } from './http-exception.filter';
+import passport from 'passport';
+import cookieParser from 'cookie-parser';
+import session from 'express-session';
 
 //for Hot Reloading
 declare const module: any;
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
+  app.useGlobalPipes(new ValidationPipe());
+  app.useGlobalFilters(new HttpExceptionFilter());
+
+  app.use(cookieParser());
+  app.use(
+    session({
+      resave: false,
+      saveUninitialized: false,
+      secret: 'dbproject2022~',
+      cookie: {
+        httpOnly: true,
+      },
+    }),
+  );
+  app.use(passport.initialize());
+  app.use(passport.session());
 
   const config = new DocumentBuilder()
     .setTitle('DB 프로젝트 API')

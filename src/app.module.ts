@@ -15,6 +15,7 @@ import { StaffsModule } from './staffs/staffs.module';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { RolesModule } from './roles/roles.module';
 import { DepartmentsModule } from './departments/departments.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -35,6 +36,8 @@ import { DepartmentsModule } from './departments/departments.module';
     StaffsModule,
     RolesModule,
     DepartmentsModule,
+    // auth
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService, ConfigService],

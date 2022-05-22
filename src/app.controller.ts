@@ -4,6 +4,7 @@ import {
   Query,
   Render,
   NotFoundException,
+  Req,
 } from '@nestjs/common';
 import { AppService } from './app.service';
 import { StaffsService } from './staffs/staffs.service';
@@ -17,8 +18,12 @@ export class AppController {
   ) {}
 
   @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  @Render('home')
+  home(@Req() req) {
+    console.log('--------------------------req.user--------------------------');
+    console.log(req.user);
+    const isLogin = req.user ? true : false;
+    return { isLogin };
   }
 
   @Get('/hi')

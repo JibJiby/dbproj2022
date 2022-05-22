@@ -70,6 +70,16 @@ form .error {
 form div.form-group {
     margin-top: 20px;
 }
+
+form div.goto-home:hover a {
+    padding: 8px 15px;
+    border-radius: 6px;
+    background-color: rgba(0,0,0,.2);
+
+    transition: background-color .3s ease-in;
+    
+}
+
 #second {
     display: none;
 }
@@ -82,11 +92,9 @@ form div.form-group {
     width: 200px;
 }
 
-
 .signup-btn-wrapper {
     margin-top: 20px;
 }
-
 
 .signup-btn-wrapper button {
     width: 200px;

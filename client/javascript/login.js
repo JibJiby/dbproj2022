@@ -37,6 +37,32 @@ $('#signin').click(function () {
   });
 });
 
+$('#first input#password').keydown(function (key) {
+  if (key.keyCode === 13) {
+    $('#first button[type="submit"]').click();
+  }
+});
+
+$('button[type="submit"]').click(function () {
+  let inputEmail = $('#email').val();
+  let inputPassword = $('#password').val();
+  console.log(inputEmail, inputPassword);
+  $.ajax({
+    method: 'POST',
+    url: '/api/staffs/login',
+    data: { email: inputEmail, password: inputPassword },
+    success: function (data) {
+      console.log(data);
+      window.location.href = '/';
+    },
+    error: function (error) {
+      console.log(error);
+      alert('로그인에 실패했습니다.');
+    },
+  });
+});
+
+//
 $("form[name='login']").validate({
   rules: {
     email: {
