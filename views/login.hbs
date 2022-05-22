@@ -64,6 +64,8 @@
 
                         </div>
                     </div>
+                    {{!-- 회원 가입 --}}
+
                     <div id="second">
                         <div class="myform form ">
                             <div class="logo mb-3">
@@ -71,87 +73,88 @@
                                     <h1 >회원가입</h1>
                                 </div>
                             </div>
-                            <form action="/auth/signup" name="registration" method="post">
-                                <div class="form-group">
-                                    <label for="exampleInputName">이름</label>
+                            {{!-- <form action="/auth/signup" name="registration" method="post"> --}}
+                            <div class="form-group">
+                                <label for="exampleInputName">이름</label>
+                                <input
+                                    type="text"
+                                    maxlength="20"
+                                    name="name"
+                                    id="form-name"
+                                    class="form-control"
+                                    placeholder="이름">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputSocialNumber">주민번호</label>
+                                <div class="input-group">
                                     <input
                                         type="text"
-                                        name="name"
-                                        id="form-name"
-                                        class="form-control"
-                                        placeholder="이름">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputName">주민번호</label>
-                                    <div class="input-group">
-                                        <input
-                                            type="text"
-                                            aria-label="First number"
-                                            class="form-control"
-                                            placeholder="앞자리">
-                                        <input
-                                            type="password"
-                                            aria-label="Last number"
-                                            class="form-control"
-                                            placeholder="뒷자리">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">이메일</label>
-                                    <input
-                                        type="email"
-                                        name="email"
-                                        class="form-control"
-                                        id="email"
-                                        aria-describedby="emailHelp"
-                                        placeholder="Enter email">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">비밀번호</label>
+                                        aria-label="First number"
+                                        class="form-control first-social-number"
+                                        placeholder="앞자리">
                                     <input
                                         type="password"
-                                        name="password"
-                                        id="password"
-                                        class="form-control"
-                                        placeholder="비밀번호">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">비밀번호 확인</label>
-                                    <input
-                                        type="password"
-                                        name="password_confirm"
-                                        id="password_confirm"
-                                        class="form-control"
-                                        placeholder="비밀번호 확인">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputEducation">학력</label>
-                                    <input
-                                        type="text"
-                                        name="education"
-                                        id="education"
-                                        class="form-control"
-                                        placeholder="학력">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputDepartment">부서</label>
-                                    <select class="form-select" aria-label="Default select example">
-                                        <option selected="selected">부서를 선택해주세요.</option>
-                                    </select>
-                                </div>
-
-                                <div class="col-md-12 text-center mb-3 signup-btn-wrapper">
-                                    <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">회원가입 하기</button>
-                                </div>
-                                <div class="col-md-12 ">
-                                    <div class="form-group">
-                                        <p class="text-center">
-                                            <a href="#" id="signin">이미 계정이 있나요?</a>
-                                        </p>
-                                    </div>
+                                        aria-label="Last number"
+                                        class="form-control second-social-number"
+                                        placeholder="뒷자리">
                                 </div>
                             </div>
-                        </form>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">이메일</label>
+                                <input
+                                    type="email"
+                                    name="email"
+                                    class="form-control"
+                                    id="email"
+                                    aria-describedby="emailHelp"
+                                    placeholder="Enter email">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">비밀번호</label>
+                                <input
+                                    type="password"
+                                    name="password"
+                                    id="password"
+                                    class="form-control"
+                                    placeholder="비밀번호">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">비밀번호 확인</label>
+                                <input
+                                    type="password"
+                                    name="password_confirm"
+                                    id="password_confirm"
+                                    class="form-control"
+                                    placeholder="비밀번호 확인">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEducation">학력</label>
+                                <input
+                                    type="text"
+                                    name="education"
+                                    id="education"
+                                    class="form-control"
+                                    placeholder="학력">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputDepartment">부서</label>
+                                <select class="form-select" aria-label="Default select example" id="department-selection">
+                                    <option selected="selected">부서를 선택해주세요.</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-12 text-center mb-3 signup-btn-wrapper">
+                                <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">회원가입 하기</button>
+                            </div>
+                            <div class="col-md-12 ">
+                                <div class="form-group">
+                                    <p class="text-center">
+                                        <a href="#" id="signin">이미 계정이 있나요?</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        {{!-- </form> --}}
                     </div>
                 </div>
             </div>

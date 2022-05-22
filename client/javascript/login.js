@@ -43,9 +43,42 @@ $('#first input#password').keydown(function (key) {
   }
 });
 
-$('button[type="submit"]').click(function () {
-  let inputEmail = $('#email').val();
-  let inputPassword = $('#password').val();
+// 주민번호 앞자리 제한
+$('#second .first-social-number').keypress(function (event) {
+  if ($('#second .first-social-number').val().length > 5) {
+    return false;
+  }
+
+  if (
+    event.which &&
+    ((event.which > 47 && event.which < 58) || event.which == 8)
+  ) {
+    // $('#second .first-social-number').val(String.fromCharCode(event.which));
+    // console.log(String.fromCharCode(event.which));
+  } else {
+    return false;
+  }
+});
+
+// 주민번호 뒤자리 제한
+$('#second .second-social-number').keypress(function (event) {
+  if ($('#second .second-social-number').val().length > 6) {
+    return false;
+  }
+
+  if (
+    event.which &&
+    ((event.which > 47 && event.which < 58) || event.which == 8)
+  ) {
+  } else {
+    return false;
+  }
+});
+
+// 로그인
+$('#first button[type="submit"]').click(function () {
+  let inputEmail = $('#first #email').val();
+  let inputPassword = $('#first #password').val();
   console.log(inputEmail, inputPassword);
   $.ajax({
     method: 'POST',
@@ -58,6 +91,54 @@ $('button[type="submit"]').click(function () {
     error: function (error) {
       console.log(error);
       alert('로그인에 실패했습니다.');
+    },
+  });
+});
+
+// 회원가입
+$('#second button[type="submit"]').click(function () {
+  let inputName = $('#second #form-name').val();
+  let inputSocialNumber =
+    $('#second .first-social-number').val() +
+    '-' +
+    $('#second .second-social-number').val();
+  let inputEmail = $('#second #email').val();
+  let inputPassword = $('#second #password').val();
+  let inputConfirmPassword = $('#second #password_confirm').val();
+  let inputEducation = $('#second #education').val();
+  let inputDepartment = $(
+    '#second #department-selection option:selected',
+  ).val();
+
+  // TODO: validation
+
+  // console.log(inputName);
+  // console.log(inputSocialNumber);
+  // console.log(inputEmail);
+  // console.log(inputPassword);
+  // console.log(inputConfirmPassword);
+  // console.log(inputEducation);
+  // console.log(inputDepartment);
+
+  $.ajax({
+    url: '/api/staffs/signup',
+    method: 'POST',
+    data: {
+      name: inputName,
+      email: inputEmail,
+      password: inputPassword,
+      socialNumber: inputSocialNumber,
+      education: inputEducation,
+      Department: inputDepartment,
+    },
+    success: function (res) {
+      console.log(res);
+      window.location.href = '/login';
+      alert('회원 가입 성공하셨습니다!');
+    },
+    error: function (error) {
+      alert('회원 가입 실패!');
+      console.log(error);
     },
   });
 });
