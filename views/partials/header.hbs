@@ -1,0 +1,64 @@
+{{!-- 헤더 --}}
+<header
+    class="p-3 bg-dark text-white"
+    style="user-select: auto; margin-bottom: 30px;">
+    <div class="container" style="user-select: auto;">
+        <div
+            class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start"
+            style="user-select: auto;">
+            <a
+                href="/"
+                class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none"
+                style="user-select: auto;">
+                <svg
+                    class="bi me-2"
+                    width="40"
+                    height="32"
+                    role="img"
+                    aria-label="Bootstrap"
+                    style="user-select: auto;">
+                    <use xlink:href="#bootstrap" style="user-select: auto;"></use>
+                </svg>
+            </a>
+
+            <ul
+                class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 left-menu-conatiner"
+                style="user-select: auto;">
+                <li style="user-select: auto;">
+                    <a href="/" class="nav-link px-2" style="user-select: auto;">Home</a>
+                </li>
+                <li style="user-select: auto;">
+                    <a href="/staffs" class="nav-link px-2 text-white" style="user-select: auto;">직원 관리</a>
+                </li>
+                {{!-- <li style="user-select: auto;">
+                    <a href="#" class="nav-link px-2 text-white" style="user-select: auto;">Pricing</a>
+                </li>
+                <li style="user-select: auto;">
+                    <a href="#" class="nav-link px-2 text-white" style="user-select: auto;">FAQs</a>
+                </li>
+                <li style="user-select: auto;">
+                    <a href="#" class="nav-link px-2 text-white" style="user-select: auto;">About</a>
+                </li> --}}
+            </ul>
+
+            <div class="text-end" style="user-select: auto;">
+                {{#if isLogin}}
+                    {{!-- TODO: 로그아웃 엔드포인트로 요청 --}}
+                    <button
+                        type="button"
+                        id="logout-btn"
+                        class="btn btn-outline-light me-2"
+                        style="user-select: auto; font-weight: bold;">로그아웃</button>
+                {{/if}}
+                {{#unless isLogin}}
+                    <button
+                        type="button"
+                        id="login-signup-btn"
+                        class="btn btn-outline-light me-2"
+                        style="user-select: auto; font-weight: bold;">직원 로그인</button>
+                {{/unless}}
+            </div>
+        </div>
+    </div>
+</header>
+{{!-- 헤더 끝 --}}

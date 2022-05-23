@@ -98,10 +98,10 @@ $('#first button[type="submit"]').click(function () {
 // 회원가입
 $('#second button[type="submit"]').click(function () {
   let inputName = $('#second #form-name').val();
+  let inputFirstSocialNumber = $('#second .first-social-number').val();
+  let inputSecondSocialNumber = $('#second .second-social-number').val();
   let inputSocialNumber =
-    $('#second .first-social-number').val() +
-    '-' +
-    $('#second .second-social-number').val();
+    inputFirstSocialNumber + '-' + inputSecondSocialNumber;
   let inputEmail = $('#second #email').val();
   let inputPassword = $('#second #password').val();
   let inputConfirmPassword = $('#second #password_confirm').val();
@@ -110,15 +110,49 @@ $('#second button[type="submit"]').click(function () {
     '#second #department-selection option:selected',
   ).val();
 
-  // TODO: validation
-
   // console.log(inputName);
   // console.log(inputSocialNumber);
   // console.log(inputEmail);
   // console.log(inputPassword);
   // console.log(inputConfirmPassword);
   // console.log(inputEducation);
-  // console.log(inputDepartment);
+  console.log(inputDepartment);
+
+  // validation
+  if (inputName.trim() === '') {
+    alert('이름을 입력해주세요.');
+    return false;
+  }
+  if (inputFirstSocialNumber === '' || inputFirstSocialNumber.length !== 6) {
+    alert('주민번호 앞자리를 제대로 입력해주세요');
+    return false;
+  }
+  if (inputSecondSocialNumber === '' || inputSecondSocialNumber.length !== 7) {
+    alert('주민번호 뒷자리를 제대로 입력해주세요');
+    return false;
+  }
+  if (inputEmail === '') {
+    // TODO: 이메일 정규식으로 확인 필요
+    alert('이메일을 제대로 입력해주세요.');
+    return false;
+  }
+  if (inputPassword === '') {
+    alert('비밀번호를 제대로 입력해주세요.');
+    return false;
+  }
+  if (inputConfirmPassword === '') {
+    alert('비밀번호를 제대로 입력해주세요.');
+    return false;
+  }
+  if (inputPassword !== inputConfirmPassword) {
+    alert('동일한 비밀번호를 입력해주세요.');
+    return false;
+  }
+
+  if (Number.isNaN(Number(inputDepartment))) {
+    alert('부서를 제대로 입력해주세요.');
+    return false;
+  }
 
   $.ajax({
     url: '/api/staffs/signup',

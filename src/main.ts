@@ -8,6 +8,7 @@ import { HttpExceptionFilter } from './http-exception.filter';
 import passport from 'passport';
 import cookieParser from 'cookie-parser';
 import session from 'express-session';
+import hbs from 'hbs';
 
 //for Hot Reloading
 declare const module: any;
@@ -46,6 +47,8 @@ async function bootstrap() {
   app.useStaticAssets(join(__dirname, '..', 'public'));
   app.setBaseViewsDir(join(__dirname, '..', 'views'));
   app.setViewEngine('hbs');
+  // https://github.com/nestjs/nest/issues/916
+  hbs.registerPartials(join(__dirname, '..', '/views/partials'));
 
   await app.listen(3000);
 

@@ -1,6 +1,7 @@
 @import 'common.css';
+@import 'header.css';
 
-body {
+.content-container {
   padding-top: 1%;
   padding-bottom: 1%;
   padding-left: 3%;
@@ -12,7 +13,7 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 40px;
-  margin: 30px auto;
+  margin: 10px auto 30px;
 
   font-weight: bold;
   user-select: none;

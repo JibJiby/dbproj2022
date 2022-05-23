@@ -9,74 +9,12 @@
             rel="stylesheet"
             integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
             crossorigin="anonymous">
-        <link href="css/common.css" rel="stylesheet">
         <link href="css/home.css" rel="stylesheet">
         <title>Document</title>
     </head>
     <body>
         {{!-- 헤더 --}}
-        <header
-            class="p-3 bg-dark text-white"
-            style="user-select: auto; margin-bottom: 30px;">
-            <div class="container" style="user-select: auto;">
-                <div
-                    class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start"
-                    style="user-select: auto;">
-                    <a
-                        href="/"
-                        class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none"
-                        style="user-select: auto;">
-                        <svg
-                            class="bi me-2"
-                            width="40"
-                            height="32"
-                            role="img"
-                            aria-label="Bootstrap"
-                            style="user-select: auto;">
-                            <use xlink:href="#bootstrap" style="user-select: auto;"></use>
-                        </svg>
-                    </a>
-
-                    <ul
-                        class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 left-menu-conatiner"
-                        style="user-select: auto;">
-                        <li style="user-select: auto;">
-                            <a href="/" class="nav-link px-2" style="user-select: auto;">Home</a>
-                        </li>
-                        {{!-- <li style="user-select: auto;">
-                            <a href="#" class="nav-link px-2 text-white" style="user-select: auto;">Features</a>
-                        </li>
-                        <li style="user-select: auto;">
-                            <a href="#" class="nav-link px-2 text-white" style="user-select: auto;">Pricing</a>
-                        </li>
-                        <li style="user-select: auto;">
-                            <a href="#" class="nav-link px-2 text-white" style="user-select: auto;">FAQs</a>
-                        </li>
-                        <li style="user-select: auto;">
-                            <a href="#" class="nav-link px-2 text-white" style="user-select: auto;">About</a>
-                        </li> --}}
-                    </ul>
-
-                    <div class="text-end" style="user-select: auto;">
-                        {{#if isLogin}}
-                            {{!-- TODO: 로그아웃 엔드포인트로 요청 --}}
-                            <button
-                                type="button"
-                                id="logout-btn"
-                                class="btn btn-outline-light me-2"
-                                style="user-select: auto; font-weight: bold;">로그아웃</button>
-                        {{/if}}
-                        {{#unless isLogin}}
-                            <button
-                                type="button"
-                                id="login-signup-btn"
-                                class="btn btn-outline-light me-2"
-                                style="user-select: auto; font-weight: bold;">직원 로그인</button>
-                        {{/unless}}
-                    </div>
-                </div>
-            </div>
-        </header>
+        {{> header}}
 
         {{!-- 선택 --}}
         <div class="container">
@@ -96,7 +34,8 @@
             </div>
         </div>
 
-        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <script type='text/javascript' src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <script src="/javascript/header.js"></script>
         <script src="/javascript/home.js"></script>
     </body>
 </html>

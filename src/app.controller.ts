@@ -21,7 +21,7 @@ export class AppController {
   @Render('home')
   home(@Req() req) {
     console.log('--------------------------req.user--------------------------');
-    console.log(req.user);
+    console.log(req);
     const isLogin = req.user ? true : false;
     return { isLogin };
   }
@@ -68,19 +68,22 @@ export class AppController {
 
   @Get('/staffs')
   @Render('staffs')
-  async staffs(@Query('name') name: string) {
+  async staffs(@Req() req, @Query('name') name: string) {
+    const isLogin = req.user ? true : false;
+
     if (name) {
       const finded = await this.staffsService.findByName(name);
       if (finded.length > 0) {
         return {
           staffs: finded.map(convertStaff),
+          isLogin,
         };
       }
     }
 
     // name === undefined 인 경우
     const allStaffs = await this.staffsService.findAll();
-    return { staffs: allStaffs.map(convertStaff) };
+    return { staffs: allStaffs.map(convertStaff), isLogin };
   }
 }
 
