@@ -1,0 +1,57 @@
+@import 'common.css';
+@import 'header.css';
+
+.content-container {
+  padding-top: 1%;
+  padding-bottom: 1%;
+  padding-left: 3%;
+  padding-right: 3%;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  margin: 10px auto 30px;
+
+  font-weight: bold;
+  user-select: none;
+  cursor: pointer;
+}
+
+.table {
+  border-top: 2px solid #bdbdbd;
+  border-bottom: 2px solid #bdbdbd;
+}
+
+.table tbody {
+  vertical-align: middle;
+  border: 1px solid white;
+}
+
+.table th {
+  background: #f6f6f6;
+  width: 20%;
+  padding-left: 3%;
+}
+
+.table td {
+  background: #fff;
+  color: #5c5c5c;
+  font-size: 1rem;
+  line-height: 2rem;
+  padding-left: 3%;
+}
+
+.table-center th {
+  text-align: center;
+}
+
+.table-center td {
+  text-align: center;
+}
+
+caption.caption {
+  caption-side: top;
+}

@@ -5,6 +5,7 @@ import {
   Render,
   NotFoundException,
   Req,
+  Param,
 } from '@nestjs/common';
 import { AppService } from './app.service';
 import { StaffsService } from './staffs/staffs.service';
@@ -84,6 +85,18 @@ export class AppController {
     // name === undefined 인 경우
     const allStaffs = await this.staffsService.findAll();
     return { staffs: allStaffs.map(convertStaff), isLogin };
+  }
+
+  @Get('/staff/:id')
+  @Render('staff')
+  async staff(@Req() req, @Param('id') id: number) {
+    const isLogin = req.user ? true : false;
+
+    if (id) {
+      const staff = await this.staffsService.findById(id);
+      const projects = [{}];
+      return { staff: { ...staff }, projects: projects, isLogin };
+    }
   }
 }
 
