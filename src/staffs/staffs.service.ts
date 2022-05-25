@@ -86,6 +86,13 @@ export class StaffsService {
       .getOne();
   }
 
+  async findById(id: string) {
+    return await this.staffsRepository
+      .createQueryBuilder('staffs')
+      .where('staffs.id = :id', { id })
+      .getOne();
+  }
+
   update(id: number, updateStaffDto: UpdateStaffDto) {
     return `This action updates a #${id} staff`;
   }

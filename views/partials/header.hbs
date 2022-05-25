@@ -27,9 +27,14 @@
                 <li style="user-select: auto;">
                     <a href="/" class="nav-link px-2" style="user-select: auto;">Home</a>
                 </li>
-                <li style="user-select: auto;">
-                    <a href="/staffs" class="nav-link px-2 text-white" style="user-select: auto;">직원 관리</a>
-                </li>
+                {{#if isLogin}}
+                    <li style="user-select: auto;">
+                        <a href="/staffs" class="nav-link px-2 text-white" style="user-select: auto;">직원 관리</a>
+                    </li>
+                    <li style="user-select: auto;">
+                        <a href="/project/registration" class="nav-link px-2 text-white" style="user-select: auto;">프로젝트 등록</a>
+                    </li>
+                {{/if}}
                 {{!-- <li style="user-select: auto;">
                     <a href="#" class="nav-link px-2 text-white" style="user-select: auto;">Pricing</a>
                 </li>

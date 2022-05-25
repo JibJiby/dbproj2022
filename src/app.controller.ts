@@ -18,10 +18,10 @@ export class AppController {
   ) {}
 
   @Get()
-  @Render('home')
+  @Render('index')
   home(@Req() req) {
     console.log('--------------------------req.user--------------------------');
-    console.log(req);
+    // console.log(req.user);
     const isLogin = req.user ? true : false;
     return { isLogin };
   }
@@ -52,11 +52,18 @@ export class AppController {
     return { manage };
   }
 
-  @Get('/project-list')
+  @Get('/project/list')
   @Render('project-list')
   projectList() {
     const message = '';
     return { message };
+  }
+
+  @Get('project/registration')
+  @Render('project-registration')
+  registProject(@Req() req) {
+    const isLogin = req.user ? true : false;
+    return { isLogin };
   }
 
   @Get('/project/detail')

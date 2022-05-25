@@ -79,6 +79,11 @@ export class StaffsController {
     return user;
   }
 
+  @Get(':id')
+  async getTargetStaffInfo(@Param('id') id: string) {
+    return this.staffsService.findById(id);
+  }
+
   @Patch(':id')
   async update(
     @Param('id') id: string,

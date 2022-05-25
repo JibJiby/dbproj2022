@@ -5,7 +5,7 @@ $(document).ready(function () {
     url: `api/departments`,
     success: function (res) {
       // console.log('검색 결과');
-      console.log(res);
+      // console.log(res);
 
       const options = res.map(
         (v) => `<option value=${v.id}>${v.depName}</option>`,
@@ -79,13 +79,13 @@ $('#second .second-social-number').keypress(function (event) {
 $('#first button[type="submit"]').click(function () {
   let inputEmail = $('#first #email').val();
   let inputPassword = $('#first #password').val();
-  console.log(inputEmail, inputPassword);
+  // console.log(inputEmail, inputPassword);
   $.ajax({
     method: 'POST',
     url: '/api/staffs/login',
     data: { email: inputEmail, password: inputPassword },
     success: function (data) {
-      console.log(data);
+      // console.log(data);
       window.location.href = '/';
     },
     error: function (error) {
@@ -116,7 +116,7 @@ $('#second button[type="submit"]').click(function () {
   // console.log(inputPassword);
   // console.log(inputConfirmPassword);
   // console.log(inputEducation);
-  console.log(inputDepartment);
+  // console.log(inputDepartment);
 
   // validation
   if (inputName.trim() === '') {
@@ -166,13 +166,13 @@ $('#second button[type="submit"]').click(function () {
       Department: inputDepartment,
     },
     success: function (res) {
-      console.log(res);
+      // console.log(res);
       window.location.href = '/login';
       alert('회원 가입 성공하셨습니다!');
     },
     error: function (error) {
       alert('회원 가입 실패!');
-      console.log(error);
+      // console.log(error);
     },
   });
 });
