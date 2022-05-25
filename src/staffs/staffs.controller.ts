@@ -80,7 +80,7 @@ export class StaffsController {
   }
 
   @Get(':id')
-  async getTargetStaffInfo(@Param('id') id: string) {
+  async getTargetStaffInfo(@Param('id') id: number) {
     return this.staffsService.findById(id);
   }
 
