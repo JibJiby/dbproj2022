@@ -19,7 +19,8 @@ export class StaffsService {
 
   async join(createStaffDto: CreateStaffDto) {
     // login 페이지에서 POST 메소드 추가하기
-    const { email, password, name, socialNumber, Department } = createStaffDto;
+    const { email, password, name, socialNumber, Department, education } =
+      createStaffDto;
     const staff = await this.staffsRepository.findOne({ where: { email } });
     if (staff) {
       throw new UnauthorizedException('이미 존재하는 사용자입니다.');
@@ -31,6 +32,7 @@ export class StaffsService {
       name,
       socialNumber,
       Department,
+      education,
     });
 
     return 'This action adds a new staff';

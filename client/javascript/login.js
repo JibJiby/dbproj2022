@@ -79,7 +79,7 @@ $('#second .second-social-number').keypress(function (event) {
 $('#first button[type="submit"]').click(function () {
   let inputEmail = $('#first #email').val();
   let inputPassword = $('#first #password').val();
-  // console.log(inputEmail, inputPassword);
+
   $.ajax({
     method: 'POST',
     url: '/api/staffs/login',
