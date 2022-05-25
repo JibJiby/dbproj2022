@@ -38,3 +38,14 @@ $('button#search').click(function (e) {
 
   return false;
 });
+
+$('.table_row').each((_, item) => {
+  item.addEventListener('click', function () {
+    const sId = this.querySelector('td#s_id').textContent;
+
+    const location = window.location;
+    const href = `${location.origin}/staff/${sId}`;
+
+    window.location.href = href;
+  });
+});

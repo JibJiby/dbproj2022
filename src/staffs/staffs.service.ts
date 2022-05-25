@@ -86,6 +86,19 @@ export class StaffsService {
       .getOne();
   }
 
+  async findById(id: number) {
+    const result = await this.staffsRepository
+      .createQueryBuilder('staffs')
+      .where('staffs.staff_number = :id', { id })
+      .getOne();
+
+    if (result) {
+      return result;
+    } else {
+      throw new NotFoundException('해당 사번을 가진 STAFF를 찾지 못했습니다.');
+    }
+  }
+
   update(id: number, updateStaffDto: UpdateStaffDto) {
     return `This action updates a #${id} staff`;
   }

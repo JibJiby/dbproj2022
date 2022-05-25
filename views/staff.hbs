@@ -1,0 +1,98 @@
+<html lang='ko'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>직원 상세 조회 페이지</title>
+    <link
+      href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css'
+      rel='stylesheet'
+      integrity='sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor'
+      crossorigin='anonymous'
+    />
+    <link rel='stylesheet' href='/css/staff.css' />
+  </head>
+  <body>
+    {{!-- 헤더 --}}
+    {{> header }}
+
+    <div class="content-container">
+      <div class='header'>직원 상세 조회</div>
+      <div class='wrap'>
+        <div class='content'>
+          <table class='table'>
+            <caption class='caption'>
+              <h5>인적 사항</h5>
+            </caption>
+            <tbody>
+              <tr>
+                <th>사번</th>
+                <td>{{staff.id}}</td>
+              </tr>
+              <tr>
+                <th>직원명</th>
+                <td>{{staff.name}}</td>
+              </tr>
+              <tr>
+                <th>주민번호</th>
+                <td>{{staff.socialNumber}}</td>
+              </tr>
+              <tr>
+                <th>학력</th>
+                <td>{{staff.education}}</td>
+              </tr>
+              <tr>
+                <th>급여</th>
+                <td>{{staff.salary}}</td>
+              </tr>
+              <tr>
+                <th>인센티브</th>
+                <td>{{staff.incentive}}</td>
+              </tr>
+              <tr>
+                <th>Email 주소</th>
+                <td>{{staff.email}}</td>
+              </tr>
+              <tr>
+                <th>기술경력</th>
+                <td>{{staff.skill}}</td>
+              </tr>
+              <tr>
+                <th>프로젝트 참여 가능 여부</th>
+                <td>{{staff.participate}}</td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="table table-center">
+            <caption class='caption'>
+              <h5>프로젝트 참여 기록</h5>
+            </caption>
+            <tbody>
+              <tr>
+                <th>프로젝트명</th>
+                <th>프로젝트 투입일</th>
+                <th>프로젝트 투입 종료일</th>
+                <th>직무</th>
+              </tr>
+              {{#each projects}}
+                <tr>
+                  <td>{{this.projectName}}</td>
+                  <td>{{this.startDate}}</td>
+                  <td>{{this.endDate}}</td>
+                  <td>{{this.role}}</td>
+                </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <script
+      src='https://code.jquery.com/jquery-3.6.0.min.js'
+      integrity='sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4='
+      crossorigin='anonymous'
+    ></script>
+    <script src='/javascript/header.js'></script>
+    <script src='/javascript/staff.js'></script>
+  </body>
+</html>
