@@ -22,7 +22,7 @@
 
 div.search {
   display: flex;
-  margin-bottom: 1%;
+  margin-bottom: 3px;
 }
 
 button#search {
@@ -31,4 +31,12 @@ button#search {
 
 tr.table_row {
   cursor: pointer;
+}
+
+.form-switch {
+  margin-bottom: 6px;
+}
+
+.hide {
+  display: none;
 }
