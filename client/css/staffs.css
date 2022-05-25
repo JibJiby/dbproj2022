@@ -28,3 +28,7 @@ div.search {
 button#search {
   width: 6rem;
 }
+
+tr.table_row {
+  cursor: pointer;
+}
