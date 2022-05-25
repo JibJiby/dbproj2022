@@ -49,3 +49,19 @@ $('.table_row').each((_, item) => {
     window.location.href = href;
   });
 });
+
+$('#proj-switch').click(function () {
+  const checked = this.checked;
+
+  $('.table_row').each((_, row) => {
+    const unable = $(row).attr('unable');
+
+    if (unable !== undefined) {
+      if (checked) {
+        $(row).addClass('hide');
+      } else {
+        $(row).removeClass('hide');
+      }
+    }
+  });
+});
