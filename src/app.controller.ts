@@ -10,12 +10,14 @@ import {
 import { AppService } from './app.service';
 import { StaffsService } from './staffs/staffs.service';
 import { Staff } from './entities/Staff';
+import { ProjectsService } from './projects/projects.service';
 
 @Controller()
 export class AppController {
   constructor(
     private readonly appService: AppService,
     private readonly staffsService: StaffsService,
+    private readonly projectsService: ProjectsService,
   ) {}
 
   @Get()
@@ -55,9 +57,13 @@ export class AppController {
 
   @Get('/project/list')
   @Render('project-list')
-  projectList() {
-    const message = '';
-    return { message };
+  async projectList(@Req() req) {
+    const isLogin = req.user ? true : false;
+
+    const allProjects = await this.projectsService.findAll();
+    console.log('allProjects');
+    console.log(allProjects);
+    return { isLogin, projects: allProjects };
   }
 
   @Get('project/registration')
@@ -69,9 +75,9 @@ export class AppController {
 
   @Get('/project/detail')
   @Render('detail')
-  projectDetail() {
-    const message = '';
-    return { message };
+  projectDetail(@Req() req) {
+    const isLogin = req.user ? true : false;
+    return { isLogin };
   }
 
   @Get('/staffs')

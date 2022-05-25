@@ -21,7 +21,7 @@ export class ProjectsController {
   }
 
   @Get()
-  findAll() {
+  async findAll() {
     return this.projectsService.findAll();
   }
 

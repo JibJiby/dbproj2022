@@ -1,6 +1,9 @@
 @import 'common.css';
 @import 'header.css';
 
+.regist-container {
+    margin: 0 40px;
+}
 
 .question {
     width: 100%;
@@ -112,4 +115,9 @@
 .btngreen a:hover {
     background: #fff;
     color: #008d2d;
+}
+
+
+.hidden {
+    display: none;
 }
