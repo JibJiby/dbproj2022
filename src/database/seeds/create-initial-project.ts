@@ -11,23 +11,43 @@ export class CreateInitialData implements Seeder {
       .values([
         {
           id: 1,
-          projectName: '첫 프로젝트',
-          startDate: new Date(2022, 1, 1),
-          endDate: new Date(2022, 2, 20),
-          budget: 1000 * 10000,
-          isCompleted: false,
+          projectName: '약 성분 분석 프로젝트',
+          startDate: new Date(2021, 8, 10),
+          endDate: new Date(2021, 12, 25),
+          budget: 4000 * 10000,
+          isCompleted: true,
           //
           Client: () => '1',
         },
         {
           id: 2,
-          projectName: '두번째 프로젝트',
+          projectName: '신규 파이낸셜 프로젝트',
+          startDate: new Date(2021, 10, 25),
+          endDate: new Date(2022, 5, 20),
+          budget: 8000 * 10000,
+          isCompleted: true,
+          //
+          Client: () => '2',
+        },
+        {
+          id: 3,
+          projectName: '베트남 모바일 채팅 앱 프로젝트',
           startDate: new Date(2022, 3, 1),
-          endDate: new Date(2022, 4, 29),
+          endDate: new Date(2022, 7, 29),
           budget: 5000 * 10000,
           isCompleted: false,
           //
-          Client: () => '2',
+          Client: () => '3',
+        },
+        {
+          id: 4,
+          projectName: '명지대학교 상권 프로젝트',
+          startDate: new Date(2022, 7, 2),
+          endDate: new Date(2022, 12, 15),
+          budget: 5000 * 10000,
+          isCompleted: false,
+          //
+          Client: () => '4',
         },
       ])
       .execute();
