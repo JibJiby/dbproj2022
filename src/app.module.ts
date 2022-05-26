@@ -17,6 +17,7 @@ import { RolesModule } from './roles/roles.module';
 import { DepartmentsModule } from './departments/departments.module';
 import { AuthModule } from './auth/auth.module';
 import { ProjectsModule } from './projects/projects.module';
+import { ClientsModule } from './clients/clients.module';
 
 @Module({
   imports: [
@@ -40,6 +41,7 @@ import { ProjectsModule } from './projects/projects.module';
     // auth
     AuthModule,
     ProjectsModule,
+    ClientsModule,
   ],
   controllers: [AppController],
   providers: [AppService, ConfigService],

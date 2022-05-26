@@ -18,13 +18,26 @@ export class ProjectsService {
   async findAll() {
     const result = await this.projectsRepository
       .createQueryBuilder('projects')
+      .leftJoinAndSelect('projects.Client', 'clients')
       .getMany();
 
     return result;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} project`;
+  async findNoneClientProject() {
+    const result = await this.projectsRepository
+      .createQueryBuilder('projects')
+      // .where('projects.Client is null')
+      .getMany();
+    return result;
+  }
+
+  async findOne(id: number) {
+    return this.projectsRepository
+      .createQueryBuilder('projects')
+      .where('projects.id = :id', { id })
+      .leftJoinAndSelect('projects.Client', 'clients')
+      .getOne();
   }
 
   update(id: number, updateProjectDto: UpdateProjectDto) {

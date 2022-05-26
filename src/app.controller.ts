@@ -60,7 +60,12 @@ export class AppController {
   async projectList(@Req() req) {
     const isLogin = req.user ? true : false;
 
-    const allProjects = await this.projectsService.findAll();
+    const allProjects = await (
+      await this.projectsService.findAll()
+    ).sort(
+      (a, b) =>
+        new Date(b.startDate).getTime() - new Date(a.startDate).getTime(),
+    );
     console.log('allProjects');
     console.log(allProjects);
     return { isLogin, projects: allProjects };
@@ -77,6 +82,18 @@ export class AppController {
   @Render('detail')
   projectDetail(@Req() req) {
     const isLogin = req.user ? true : false;
+    return { isLogin };
+  }
+  @Get('/project/:id')
+  @Render('project')
+  async detailProject(@Req() req, @Param('id') id: number) {
+    const isLogin = req.user ? true : false;
+
+    if (id) {
+      const project = await this.projectsService.findOne(id);
+      return { project, isLogin };
+    }
+
     return { isLogin };
   }
 
@@ -110,6 +127,13 @@ export class AppController {
       const projects = [{}];
       return { staff: { ...staff }, projects: projects, isLogin };
     }
+  }
+
+  @Get('/client/registration')
+  @Render('client-registration')
+  registClient(@Req() req) {
+    const isLogin = req.user ? true : false;
+    return { isLogin };
   }
 }
 

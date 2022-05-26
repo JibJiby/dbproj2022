@@ -16,7 +16,32 @@ $(document).ready(function () {
   $('input#project-end-date-input').val(today);
 
   /**
-   * TODO: 부서 데이터와 고개 데이터 가져오기
+   * 클라이언트 목록 가져오기
+   */
+  $.ajax({
+    url: '/api/clients/no-project',
+    method: 'GET',
+    success: function (clients) {
+      // console.log(clients);
+
+      clients.forEach((v) => {
+        $('select#target-client-selection').append(
+          $(`<option value=${v.id}>${v.clientName}</option>`),
+        );
+
+        // 이벤트 등록
+        $(`select#target-client-selection option[value="${v.id}"]`).click(
+          function (res) {
+            console.log(res);
+            console.log('옵션 클릭');
+          },
+        );
+      });
+    },
+  });
+
+  /**
+   * 부서 데이터와 고객 데이터 가져오기
    */
   $.ajax({
     method: 'GET',
@@ -85,7 +110,7 @@ $('#plus-staff-icon-wrapper').click(function () {
   }
   if (inputStaffNumber) {
     // 이전 입력값 남아 있으면
-    $('#staff-plus-tr td div.tmp-class').remove();
+    $('#staff-plus-tr td div').remove();
   }
 
   $('#staff-plus-tr').removeClass('hidden');

@@ -1,0 +1,123 @@
+@import 'common.css';
+@import 'header.css';
+
+.regist-container {
+    margin: 0 40px;
+}
+
+.question {
+    width: 100%;
+    border-top: 2px solid #bdbdbd;
+    border-bottom: 2px solid #bdbdbd;
+    font-family: "NanumGothic",sans-serif;
+}
+.question .qtit {
+    text-align: left;
+    margin: 50px 0 10px;
+}
+.question tr {
+    border-top: 1px solid #cdcdcd;
+}
+.question tr:first-child {
+    border-top: 0;
+}
+
+
+.question th {
+    background: #f6f6f6;
+    width: 20%;
+    text-align: left;
+    padding-left: 3%;
+}
+.question td {
+    text-align: left;
+    background: #fff;
+    padding-top: 1%!important;
+    padding-bottom: 1%!important;
+    color: #5c5c5c;
+    font-size: 15px;
+    line-height: 26px;
+    padding-left: 3%;
+}
+.question input[type="text"],
+.question select {
+    margin-right: 1%;
+    color: #5c5c5c;
+    line-height: 12px;
+    font-size: 14px;
+    font-family: "NanumGothic",sans-serif;
+    background: #f6f6f6;
+    vertical-align: middle;
+    border: 1px solid #cdcdcd;
+    padding: 1%;
+}
+.question select {
+    padding: 0.9%;
+}
+.question textarea {
+    vertical-align: middle;
+    border: 1px solid #cdcdcd;
+    width: 94%;
+    height: 100px;
+    background: #f6f6f6;
+    padding: 1%;
+}
+.question label {
+    margin-right: 1%;
+}
+.question .button {
+    margin-right: 1%;
+    line-height: 12px;
+    font-size: 14px;
+    font-family: "NanumGothic",sans-serif;
+    background: #5e5e5e;
+    vertical-align: middle;
+    border: 1px solid #5e5e5e;
+    padding: 1%;
+    cursor: pointer;
+}
+.question .button a {
+    color: #fff;
+}
+.question .add {
+    margin-top: 1%;
+}
+.question .wid10 {
+    width: 10%;
+}
+.question .wid20 {
+    width: 20%;
+}
+.question .wid30 {
+    width: 30%;
+}
+.question .wid53 {
+    width: 49%;
+}
+
+.btngreen {
+    margin-top: 30px;
+}
+.btngreen a {
+    width: 8%;
+    margin: 0 auto;
+    display: block;
+    padding: 0.7em 1.5em 0.8em;
+    font-size: 16px;
+    color: #fff;
+    border: 1px solid #008d2d;
+    border-radius: 2em;
+    background: #008d2d;
+    text-align: center;
+    letter-spacing: -0.5px;
+    font-weight: bold;
+}
+.btngreen a:hover {
+    background: #fff;
+    color: #008d2d;
+}
+
+
+.hidden {
+    display: none;
+}
