@@ -19,22 +19,16 @@ $(document).ready(function () {
    * 클라이언트 목록 가져오기
    */
   $.ajax({
-    url: '/api/clients/no-project',
+    url: '/api/clients',
     method: 'GET',
     success: function (clients) {
-      // console.log(clients);
+      console.log(clients);
 
       clients.forEach((v) => {
         $('select#target-client-selection').append(
-          $(`<option value=${v.id}>${v.clientName}</option>`),
-        );
-
-        // 이벤트 등록
-        $(`select#target-client-selection option[value="${v.id}"]`).click(
-          function (res) {
-            console.log(res);
-            console.log('옵션 클릭');
-          },
+          $(
+            `<option value=${v.id}>${v.id}  /  ${v.clientName}  /  ${v.companyName}</option>`,
+          ),
         );
       });
     },
