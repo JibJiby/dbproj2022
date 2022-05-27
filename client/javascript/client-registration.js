@@ -20,7 +20,7 @@ $('#client-registration-btn').click(function () {
       companyName: clientCompany,
     },
     success: function (res) {
-      console.log('클라이언트 등록 성공');
+      alert('클라이언트 등록 성공');
       window.location = '/';
     },
     error: function (error) {

@@ -44,7 +44,17 @@ export class CreateInitialData implements Seeder {
           projectName: '명지대학교 상권 프로젝트',
           startDate: new Date(2022, 7, 2),
           endDate: new Date(2022, 12, 15),
-          budget: 5000 * 10000,
+          budget: 12000 * 10000,
+          isCompleted: false,
+          //
+          Client: () => '4',
+        },
+        {
+          id: 5,
+          projectName: '도서 개인화 추천 프로젝트',
+          startDate: new Date(2022, 10, 5),
+          endDate: new Date(2023, 3, 15),
+          budget: 7000 * 10000,
           isCompleted: false,
           //
           Client: () => '4',
