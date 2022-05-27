@@ -7,7 +7,10 @@ $('#ongoing-proj-switch').click(function () {
   if (checked) {
     $('tr.table_row')
       .filter(function (i, sel) {
-        return $(sel).find('.is-completed').text() === 'true';
+        return (
+          $(sel).find('.is-completed').text() === 'true' ||
+          new Date($(sel).find('.proj-start-date').text()) > Date.now()
+        );
       })
       .each(function (i, sel) {
         $(sel).addClass('hidden');
@@ -15,7 +18,10 @@ $('#ongoing-proj-switch').click(function () {
   } else {
     $('tr.table_row')
       .filter(function (i, sel) {
-        return $(sel).find('.is-completed').text() === 'true';
+        return (
+          $(sel).find('.is-completed').text() === 'true' ||
+          new Date($(sel).find('.proj-start-date').text()) > Date.now()
+        );
       })
       .each(function (i, sel) {
         $(sel).removeClass('hidden');
