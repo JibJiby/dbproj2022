@@ -30,25 +30,20 @@ export class ClientsService {
   }
 
   async findNoneProjectClient() {
-    // const result = this.clientsRepository.find({
-    //   where: {
-    //     // https://stackoverflow.com/questions/46879840/how-can-i-have-is-null-condition-in-typeorm-find-options
-    //     Projects: IsNull(),
-    //   },
-    // });
-
-    // console.log(result);
-    // return result;
+    const allClients = this.clientsRepository
+      .createQueryBuilder('clients')
+      .getMany();
 
     const result = await this.projectsRepository
       .createQueryBuilder('projects')
-      .leftJoinAndSelect('projects.Client', 'clients', 'clients.id is null')
+      .leftJoinAndSelect('projects.Client', 'clients')
       .getMany();
-    return result;
 
-    // const result = await this.clientsRepository
-    //   .createQueryBuilder('clients')
-    //   .leftJoin()
+    const mappedClients = result.map((v) => v.Client.id);
+
+    return (await allClients).filter(
+      (client) => !mappedClients.includes(client.id),
+    );
   }
 
   findOne(id: number) {

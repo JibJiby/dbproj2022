@@ -19,7 +19,7 @@ $(document).ready(function () {
    * 클라이언트 목록 가져오기
    */
   $.ajax({
-    url: '/api/clients',
+    url: '/api/clients/no-project',
     method: 'GET',
     success: function (clients) {
       console.log(clients);
