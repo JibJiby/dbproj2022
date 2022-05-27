@@ -1,13 +1,13 @@
 // $(document).ready(function () {});
 
-$('#complete-proj-switch').click(function () {
-  let checked = $('#complete-proj-switch:checkbox').is(':checked');
+$('#ongoing-proj-switch').click(function () {
+  let checked = $('#ongoing-proj-switch:checkbox').is(':checked');
   // console.log(checked);
 
   if (checked) {
     $('tr.table_row')
       .filter(function (i, sel) {
-        return $(sel).find('.is-completed').text() !== 'true';
+        return $(sel).find('.is-completed').text() === 'true';
       })
       .each(function (i, sel) {
         $(sel).addClass('hidden');
@@ -15,7 +15,7 @@ $('#complete-proj-switch').click(function () {
   } else {
     $('tr.table_row')
       .filter(function (i, sel) {
-        return $(sel).find('.is-completed').text() !== 'true';
+        return $(sel).find('.is-completed').text() === 'true';
       })
       .each(function (i, sel) {
         $(sel).removeClass('hidden');
