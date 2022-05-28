@@ -18,6 +18,7 @@ import { DepartmentsModule } from './departments/departments.module';
 import { AuthModule } from './auth/auth.module';
 import { ProjectsModule } from './projects/projects.module';
 import { ClientsModule } from './clients/clients.module';
+import { ParticipationsModule } from './participations/participations.module';
 
 @Module({
   imports: [
@@ -42,6 +43,7 @@ import { ClientsModule } from './clients/clients.module';
     AuthModule,
     ProjectsModule,
     ClientsModule,
+    ParticipationsModule,
   ],
   controllers: [AppController],
   providers: [AppService, ConfigService],

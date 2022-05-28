@@ -65,3 +65,32 @@ $('#proj-switch').click(function () {
     }
   });
 });
+
+// $('#noproj-staff-switch').click(function () {
+//   let checked = $('#noproj-staff-switch:checkbox').is(':checked');
+//   console.log(checked);
+
+//   if (checked) {
+//     // $('tr.table_row')
+//     //   .filter(function (i, sel) {
+//     //     return (
+//     //       $(sel).find('.is-completed').text() === 'true' ||
+//     //       new Date($(sel).find('.proj-start-date').text()) > Date.now()
+//     //     );
+//     //   })
+//     //   .each(function (i, sel) {
+//     //     $(sel).addClass('hidden');
+//     //   });
+//   } else {
+//     // $('tr.table_row')
+//     //   .filter(function (i, sel) {
+//     //     return (
+//     //       $(sel).find('.is-completed').text() === 'true' ||
+//     //       new Date($(sel).find('.proj-start-date').text()) > Date.now()
+//     //     );
+//     //   })
+//     //   .each(function (i, sel) {
+//     //     $(sel).removeClass('hidden');
+//     //   });
+//   }
+// });

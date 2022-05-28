@@ -2,7 +2,7 @@ import { Connection } from 'typeorm';
 import { Factory, Seeder } from 'typeorm-seeding';
 import { Project } from '../../entities/Project';
 
-export class CreateInitialData implements Seeder {
+export class CreateInitialProjectData implements Seeder {
   public async run(factory: Factory, connection: Connection): Promise<any> {
     await connection
       .createQueryBuilder()
@@ -39,16 +39,16 @@ export class CreateInitialData implements Seeder {
           //
           Client: () => '3',
         },
-        {
-          id: 4,
-          projectName: '명지대학교 상권 프로젝트',
-          startDate: new Date(2022, 7, 2),
-          endDate: new Date(2022, 12, 15),
-          budget: 12000 * 10000,
-          isCompleted: false,
-          //
-          Client: () => '4',
-        },
+        // {
+        //   id: 4,
+        //   projectName: '명지대학교 상권 프로젝트',
+        //   startDate: new Date(2022, 7, 2),
+        //   endDate: new Date(2022, 12, 15),
+        //   budget: 12000 * 10000,
+        //   isCompleted: false,
+        //   //
+        //   Client: () => '4',
+        // },
       ])
       .execute();
   }

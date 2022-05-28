@@ -51,11 +51,29 @@
                         </tbody>
                     </table>
                 </div>
-                <caption class="caption" style="user-select: auto;">
-                    <h5 style="user-select: auto;">참여 인원 정보</h5>
-                </caption>
-                <div>
-                  {{!-- TODO: 참여자 정보 가져오기 --}}
+
+                <table class="table table-center">
+                    <caption class='caption'>
+                        <h5>참여 인원 정보</h5>
+                    </caption>
+                    <tbody>
+                        <tr>
+                            <th>참가자명</th>
+                            <th>부서</th>
+                            <th>프로젝트 투입일</th>
+                            <th>프로젝트 투입 종료일</th>
+                        </tr>
+                        <div>
+                            {{#each participations}}
+                                <tr>
+                                    <td>{{this.name}}</td>
+                                    <td>{{this.depName}}</td>
+                                    <td>{{this.startDate}}</td>
+                                    <td>{{this.endDate}}</td>
+                                </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

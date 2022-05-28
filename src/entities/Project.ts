@@ -3,10 +3,11 @@ import {
   Entity,
   JoinColumn,
   ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { Client } from './Client';
-import { Staff } from './Staff';
+import { Participation } from './Participation';
 
 @Entity({ schema: 'dbproj2022', name: 'project' })
 export class Project {
@@ -38,4 +39,7 @@ export class Project {
   })
   @JoinColumn([{ name: 'ClientId', referencedColumnName: 'id' }]) // client_id가 아닌 프로퍼티인 id로
   Client: Client;
+
+  @OneToMany(() => Participation, (participation) => participation.Project)
+  Participations: Participation[];
 }

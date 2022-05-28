@@ -3,7 +3,7 @@ import { Factory, Seeder } from 'typeorm-seeding';
 import bcrypt from 'bcrypt';
 import { Staff } from '../../entities/Staff';
 
-export class CreateInitialData implements Seeder {
+export class CreateInitialStaffData implements Seeder {
   public async run(factory: Factory, connection: Connection): Promise<any> {
     const salt = await bcrypt.genSalt();
 
@@ -30,7 +30,7 @@ export class CreateInitialData implements Seeder {
           password: await bcrypt.hash('aaa', salt),
           education: '서울대학교',
           salary: 5000 * 10000,
-          Department: () => '4',
+          Department: () => '2',
         },
         {
           id: 3,
@@ -40,7 +40,7 @@ export class CreateInitialData implements Seeder {
           socialNumber: '222222-2222222',
           salary: 5000 * 10000,
           password: await bcrypt.hash('aaa', salt),
-          Department: () => '2',
+          Department: () => '3',
         },
         {
           id: 4,
@@ -60,7 +60,7 @@ export class CreateInitialData implements Seeder {
           salary: 5000 * 10000,
           socialNumber: '444444-4444444',
           password: await bcrypt.hash('aaa', salt),
-          Department: () => '2',
+          Department: () => '5',
         },
         {
           id: 6,
@@ -110,7 +110,7 @@ export class CreateInitialData implements Seeder {
           salary: 5000 * 10000,
           socialNumber: '888888-8888888',
           password: await bcrypt.hash('aaa', salt),
-          Department: () => '3',
+          Department: () => '5',
         },
         {
           id: 11,
@@ -120,7 +120,7 @@ export class CreateInitialData implements Seeder {
           salary: 5000 * 10000,
           socialNumber: '999999-9999999',
           password: await bcrypt.hash('aaa', salt),
-          Department: () => '3',
+          Department: () => '1',
         },
         {
           id: 12,
@@ -130,7 +130,37 @@ export class CreateInitialData implements Seeder {
           salary: 5000 * 10000,
           socialNumber: '123123-1231231',
           password: await bcrypt.hash('aaa', salt),
-          Department: () => '1',
+          Department: () => '2',
+        },
+        {
+          id: 13,
+          name: '송중기',
+          email: 'sjg@skku.edu',
+          education: '성균관대학교',
+          salary: 5000 * 10000,
+          socialNumber: '123123-1231231',
+          password: await bcrypt.hash('aaa', salt),
+          Department: () => '3',
+        },
+        {
+          id: 14,
+          name: '홍진호',
+          email: 'hongjeanho@hanyang.ac.kr',
+          education: '한양대학교',
+          salary: 5000 * 10000,
+          socialNumber: '123123-1231231',
+          password: await bcrypt.hash('aaa', salt),
+          Department: () => '4',
+        },
+        {
+          id: 15,
+          name: '이수정',
+          email: 'lsj@cau.ac.kr',
+          education: '중앙대학교',
+          salary: 5000 * 10000,
+          socialNumber: '123123-1231231',
+          password: await bcrypt.hash('aaa', salt),
+          Department: () => '5',
         },
       ])
       .execute();

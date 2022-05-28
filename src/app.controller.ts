@@ -11,6 +11,7 @@ import { AppService } from './app.service';
 import { StaffsService } from './staffs/staffs.service';
 import { Staff } from './entities/Staff';
 import { ProjectsService } from './projects/projects.service';
+import { ParticipationsService } from './participations/participations.service';
 
 @Controller()
 export class AppController {
@@ -18,6 +19,7 @@ export class AppController {
     private readonly appService: AppService,
     private readonly staffsService: StaffsService,
     private readonly projectsService: ProjectsService,
+    private readonly participationsService: ParticipationsService,
   ) {}
 
   @Get()
@@ -84,6 +86,7 @@ export class AppController {
     const isLogin = req.user ? true : false;
     return { isLogin };
   }
+
   @Get('/project/:id')
   @Render('project')
   async detailProject(@Req() req, @Param('id') id: number) {
@@ -91,7 +94,17 @@ export class AppController {
 
     if (id) {
       const project = await this.projectsService.findOne(id);
-      return { project, isLogin };
+
+      const participationsInfo =
+        await this.participationsService.findByProjectId(id);
+      const participations = participationsInfo.map((v) => ({
+        startDate: v.participationStartDate,
+        endDate: v.participationEndDate,
+        name: v.Staff.name,
+        depName: v.Staff.Department.depName,
+      }));
+
+      return { project, isLogin, participations };
     }
 
     return { isLogin };
@@ -124,8 +137,18 @@ export class AppController {
 
     if (id) {
       const staff = await this.staffsService.findById(id);
-      const projects = [{}];
-      return { staff: { ...staff }, projects: projects, isLogin };
+      // const projects = [{}];
+
+      // 참가 정보
+      const staffPartisipations =
+        await this.participationsService.findByStaffId(id);
+      const projects = staffPartisipations.map((v) => v.Project);
+
+      return {
+        staff: { ...staff },
+        projects: projects,
+        isLogin,
+      };
     }
   }
 

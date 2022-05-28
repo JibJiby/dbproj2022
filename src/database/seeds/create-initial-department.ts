@@ -2,7 +2,7 @@ import { Connection } from 'typeorm';
 import { Factory, Seeder } from 'typeorm-seeding';
 import { Department } from '../../entities/Department';
 
-export class CreateInitialData implements Seeder {
+export class CreateInitialDepartmentData implements Seeder {
   public async run(factory: Factory, connection: Connection): Promise<any> {
     await connection
       .createQueryBuilder()
@@ -24,6 +24,10 @@ export class CreateInitialData implements Seeder {
         {
           id: 4,
           depName: '디자인',
+        },
+        {
+          id: 5,
+          depName: '기획',
         },
       ])
       .execute();
