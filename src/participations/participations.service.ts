@@ -81,9 +81,17 @@ export class ParticipationsService {
     console.log('프로젝트 예정 날짜   ::   ', startDate, endDate);
     console.log(
       '최근 기록   ::   ',
-      result.participationStartDate,
-      result.participationEndDate,
+      result?.participationStartDate,
+      result?.participationEndDate,
     );
+
+    // 처음 프로젝트하는 직원인 경우
+    if (
+      result?.participationStartDate === undefined ||
+      result?.participationEndDate === undefined
+    ) {
+      return true;
+    }
 
     if (result.participationEndDate < startDate) {
       return true;

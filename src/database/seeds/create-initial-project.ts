@@ -42,8 +42,8 @@ export class CreateInitialProjectData implements Seeder {
         // {
         //   id: 4,
         //   projectName: '명지대학교 상권 프로젝트',
-        //   startDate: new Date(2022, 7, 2),
-        //   endDate: new Date(2022, 12, 15),
+        //   startDate: new Date(2022, 7, 29), // 8월
+        //   endDate: new Date(2022, 12, 29),
         //   budget: 12000 * 10000,
         //   isCompleted: false,
         //   //

@@ -20,6 +20,11 @@ export class ProjectsController {
     return this.projectsService.create(createProjectDto);
   }
 
+  @Post('/set')
+  async registerProject(@Body() projectInfo) {
+    return this.projectsService.registerProject(projectInfo);
+  }
+
   @Get()
   async findAll() {
     return this.projectsService.findAll();
