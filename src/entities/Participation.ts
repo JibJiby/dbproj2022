@@ -17,7 +17,7 @@ export class Participation {
   @Column('date', { name: 'participation_start_date' })
   participationStartDate: Date;
 
-  @Column('date', { name: 'participation_end_date' })
+  @Column('date', { name: 'participation_end_date', nullable: true })
   participationEndDate: Date;
 
   @ManyToOne(() => Staff, (staff) => staff.Participates, {
