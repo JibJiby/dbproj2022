@@ -23,7 +23,7 @@ export class CreateInitialProjectData implements Seeder {
           id: 2,
           projectName: '신규 파이낸셜 프로젝트',
           startDate: new Date(2021, 10, 25),
-          endDate: new Date(2022, 5, 20),
+          endDate: new Date(2022, 4, 20),
           budget: 8000 * 10000,
           isCompleted: true,
           //

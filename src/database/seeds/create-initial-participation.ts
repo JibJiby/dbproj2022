@@ -45,31 +45,31 @@ export class CreateInitialParticipationData implements Seeder {
          */
         {
           participationStartDate: new Date(2021, 10, 25),
-          participationEndDate: new Date(2022, 5, 20),
+          participationEndDate: new Date(2022, 4, 20),
           Project: () => '2',
           Staff: () => '6',
         },
         {
           participationStartDate: new Date(2021, 10, 25),
-          participationEndDate: new Date(2022, 5, 20),
+          participationEndDate: new Date(2022, 4, 20),
           Project: () => '2',
           Staff: () => '7',
         },
         {
           participationStartDate: new Date(2021, 10, 25),
-          participationEndDate: new Date(2022, 5, 20),
+          participationEndDate: new Date(2022, 4, 20),
           Project: () => '2',
           Staff: () => '8',
         },
         {
           participationStartDate: new Date(2021, 10, 25),
-          participationEndDate: new Date(2022, 5, 20),
+          participationEndDate: new Date(2022, 4, 20),
           Project: () => '2',
           Staff: () => '9',
         },
         {
           participationStartDate: new Date(2021, 10, 25),
-          participationEndDate: new Date(2022, 5, 20),
+          participationEndDate: new Date(2022, 4, 20),
           Project: () => '2',
           Staff: () => '10',
         },
