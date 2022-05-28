@@ -4,9 +4,11 @@ import {
   Entity,
   JoinColumn,
   ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { Department } from './Department';
+import { Participation } from './Participation';
 
 // @Index('email', { unique: true })  // 이건 미리 있어야함.
 @Entity({ schema: 'dbproj2022', name: 'staff' })
@@ -49,4 +51,7 @@ export class Staff {
   @ManyToOne(() => Department, (department) => department.Staffs)
   @JoinColumn([{ name: 'DepId', referencedColumnName: 'id' }])
   Department: Department;
+
+  @OneToMany(() => Participation, (parti) => parti.Staff)
+  Participates: Participation[];
 }

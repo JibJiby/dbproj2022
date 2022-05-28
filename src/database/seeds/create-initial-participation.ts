@@ -13,11 +13,17 @@ export class CreateInitialData implements Seeder {
           id: 1,
           participationStartDate: new Date(2022, 1, 1),
           participationEndDate: new Date(2022, 2, 20),
+          Role: () => '1',
+          Project: () => '2',
+          Staff: () => '1',
         },
         {
           id: 2,
           participationStartDate: new Date(2022, 3, 1),
           participationEndDate: new Date(2022, 4, 29),
+          Role: () => '1',
+          Project: () => '3',
+          Staff: () => '3',
         },
       ])
       .execute();

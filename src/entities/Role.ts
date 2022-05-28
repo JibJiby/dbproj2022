@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { Participation } from './Participation';
 
 @Entity({ schema: 'dbproj2022', name: 'role' })
 export class Role {
@@ -11,4 +12,6 @@ export class Role {
   /**
    * Relation
    */
+  @OneToMany(() => Participation, (parti) => parti.Role)
+  Participates: Participation[];
 }
