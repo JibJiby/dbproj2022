@@ -1,5 +1,5 @@
 import path from 'path';
-import { Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
@@ -19,6 +19,7 @@ import { AuthModule } from './auth/auth.module';
 import { ProjectsModule } from './projects/projects.module';
 import { ClientsModule } from './clients/clients.module';
 import { ParticipationsModule } from './participations/participations.module';
+import { AuthMiddleware } from './auth.middleware';
 
 @Module({
   imports: [
@@ -48,4 +49,8 @@ import { ParticipationsModule } from './participations/participations.module';
   controllers: [AppController],
   providers: [AppService, ConfigService],
 })
-export class AppModule {}
+export class AppModule implements NestModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer.apply(AuthMiddleware).forRoutes('*');
+  }
+}
