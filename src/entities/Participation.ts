@@ -23,11 +23,15 @@ export class Participation {
     onDelete: 'CASCADE',
     onUpdate: 'CASCADE',
     primary: true,
+    createForeignKeyConstraints: false,
   })
   @JoinColumn([{ name: 'ProjectId', referencedColumnName: 'id' }])
   Project: Project;
 
-  @ManyToOne(() => Staff, (staff) => staff.Participations, { primary: true })
+  @ManyToOne(() => Staff, (staff) => staff.Participations, {
+    primary: true,
+    createForeignKeyConstraints: false,
+  })
   @JoinColumn([{ name: 'StaffId', referencedColumnName: 'id' }])
   Staff: Staff;
 }

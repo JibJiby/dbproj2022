@@ -115,19 +115,33 @@ export class AppController {
   async staffs(@Req() req, @Query('name') name: string) {
     const isLogin = req.user ? true : false;
 
+    const unable: string[] = [];
+
     if (name) {
       const finded = await this.staffsService.findByName(name);
       if (finded.length > 0) {
+        for (const v of finded) {
+          const p = await this.participationsService.checkNotCompleted(v.id);
+          unable.push(p ? 'unable' : '');
+        }
+
         return {
           staffs: finded.map(convertStaff),
           isLogin,
+          unable,
         };
       }
     }
 
     // name === undefined 인 경우
     const allStaffs = await this.staffsService.findAll();
-    return { staffs: allStaffs.map(convertStaff), isLogin };
+
+    for (const v of allStaffs) {
+      const p = await this.participationsService.checkNotCompleted(v.id);
+      unable.push(p ? 'unable' : '');
+    }
+
+    return { staffs: allStaffs.map(convertStaff), isLogin, unable };
   }
 
   @Get('/staff/:id')
@@ -137,15 +151,27 @@ export class AppController {
 
     if (id) {
       const staff = await this.staffsService.findById(id);
-      // const projects = [{}];
 
       // 참가 정보
       const staffPartisipations =
         await this.participationsService.findByStaffId(id);
-      const projects = staffPartisipations.map((v) => v.Project);
+
+      const projects = [];
+      for (const p of staffPartisipations) {
+        const { projectName } = p.Project;
+        projects.push({
+          projectName,
+          startDate: p.participationStartDate,
+          endDate: p.participationEndDate,
+        });
+      }
+
+      const participate = await this.participationsService.checkNotCompleted(
+        id,
+      );
 
       return {
-        staff: { ...staff },
+        staff: { ...staff, participate: !participate },
         projects: projects,
         isLogin,
       };

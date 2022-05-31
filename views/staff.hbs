@@ -52,6 +52,14 @@
                 <th>Email 주소</th>
                 <td>{{staff.email}}</td>
               </tr>
+              <tr>
+                <th>프로젝트 참여 가능 여부</th>
+                {{#if staff.participate}}
+                <td>가능</td>
+                {{else}}
+                <td>불가능</td>
+                {{/if}}
+              </tr>
             </tbody>
           </table>
           <table class="table table-center">
