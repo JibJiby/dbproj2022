@@ -77,6 +77,19 @@ CREATE SCHEMA `dbproj2022` DEFAULT CHARACTER SET utf8mb4 ;
 
 <br>
 
+### Seeding
+
+기본 데이터를 넣는 과정입니다. 데이터를 넣는 과정에서 선후관계가 중요하기 때문에 하나씩 지정해 seeding 해야합니다. 이를 자동화하는 커멘드를 스크립트로 작성하였습니다. 해당 과정은 맥 (Mac) 에서만 실행됩니다.
+
+<br>
+
+```bash
+
+bash ./seeding.sh
+```
+
+<br>
+
 ### 실제 서버 실행 스크립트
 
 ```bash
