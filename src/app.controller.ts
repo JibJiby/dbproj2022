@@ -59,8 +59,19 @@ export class AppController {
 
   @Get('/project/list')
   @Render('project-list')
-  async projectList(@Req() req) {
+  async projectList(@Req() req, @Query('projectName') projectName: string) {
     const isLogin = req.user ? true : false;
+
+    if (projectName) {
+      const projects = await (
+        await this.projectsService.findByName(projectName)
+      ).sort(
+        (a, b) =>
+          new Date(b.startDate).getTime() - new Date(a.startDate).getTime(),
+      );
+
+      return { isLogin, projects };
+    }
 
     const allProjects = await (
       await this.projectsService.findAll()
