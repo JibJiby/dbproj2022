@@ -39,3 +39,26 @@ $('.table_row').each((_, item) => {
     window.location.href = href;
   });
 });
+
+$('input[name=projectName]').keydown(function (key) {
+  if (key.keyCode === 13) {
+    //키가 13이면 실행 (엔터는 13)
+    $('button#search').click();
+  }
+});
+
+$('button#search').click(function (e) {
+  e.preventDefault();
+
+  const name = $('input[name=projectName]')[0].value;
+  if (name.length === 0) {
+    return alert('1글자 이상 입력해주세요.');
+  }
+
+  const location = window.location;
+  const href = `${location.origin}${location.pathname}?projectName=${name}`;
+
+  window.location.href = href;
+
+  return false;
+});

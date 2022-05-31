@@ -83,6 +83,16 @@ export class ProjectsService {
     return result;
   }
 
+  findByName(projectName: string) {
+    return this.projectsRepository
+      .createQueryBuilder('projects')
+      .leftJoinAndSelect('projects.Client', 'clients')
+      .where('projects.projectName like :projectName', {
+        projectName: `%${projectName}%`,
+      })
+      .getMany();
+  }
+
   async findNoneClientProject() {
     const result = await this.projectsRepository
       .createQueryBuilder('projects')
