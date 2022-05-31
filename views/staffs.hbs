@@ -23,10 +23,10 @@
             <input class='form-control' type='text' placeholder='직원명' name='staff'/>
             <button id='search' class='btn btn-primary'>검색</button>
           </div>
-          {{!-- <div class="form-check form-switch">
-            <input id="noproj-staff-switch" class="form-check-input" type="checkbox" role="switch">
-            <label class="form-check-label" for="noproj-staff-switch">프로젝트 참여 가능</label>
-          </div> --}}
+          <div class="form-check form-switch">
+            <input id="proj-switch" class="form-check-input" type="checkbox" role="switch">
+            <label class="form-check-label" for="proj-switch">프로젝트 참여 가능</label>
+          </div>
           <table class='table'>
             <thead class='table-dark'>
               <tr>
@@ -39,11 +39,7 @@
               </thead>
               <tbody class='table-group-divider'>
                 {{#each staffs}}
-                  {{#if this.unable}}
-                    <tr class='table_row' unable>
-                  {{else}}
-                    <tr class='table_row'>
-                  {{/if}}
+                  <tr class='table_row' {{lookup ../unable @index}}>
                       <th scope='row'>{{@index}}</th>
                       <td id='s_id'>{{this.staff_number}}</td>
                       <td>{{this.staff_name}}</td>

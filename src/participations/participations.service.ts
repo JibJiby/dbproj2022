@@ -100,6 +100,25 @@ export class ParticipationsService {
     }
   }
 
+  async checkNotCompleted(id: number) {
+    const now = new Date();
+    const result = await this.participationsRepository
+      .createQueryBuilder('p')
+      .leftJoinAndSelect('p.Staff', 'staffs')
+      .leftJoinAndSelect('p.Project', 'projects')
+      .where(
+        'p.StaffId = :id AND projects.isCompleted = false AND p.participationEndDate > :now',
+        { id, now },
+      )
+      .getCount();
+
+    if (result >= 1) {
+      return true;
+    }
+
+    return false;
+  }
+
   findOne(id: number) {
     return `This action returns a #${id} participation`;
   }
