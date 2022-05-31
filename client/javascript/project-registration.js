@@ -85,6 +85,7 @@ $('#project-registration-btn').click(function () {
   let projectName = $('input#project-name-input').val();
   let projectStartDate = $('input#project-start-date-input').val();
   let projectEndDate = $('input#project-end-date-input').val();
+  let projectBudget = $('#budget-input').val(); // todo:
   let participationsNumber = $('#number-staff-input').val();
   let participationsInfo = [];
   for (let i = 0; i < participationsNumber; i++) {
@@ -103,6 +104,7 @@ $('#project-registration-btn').click(function () {
   console.log(projectName);
   console.log(projectStartDate);
   console.log(projectEndDate);
+  console.log(projectBudget);
   console.log(participationsNumber);
   console.log(participationsInfo);
   console.log(clientId);
@@ -123,6 +125,7 @@ $('#project-registration-btn').click(function () {
       participationsNumber,
       participationsInfo,
       clientId,
+      projectBudget,
     },
     success: function () {
       alert('프로젝트 등록 성공!');

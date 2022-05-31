@@ -26,6 +26,7 @@ export class ProjectsService {
     projectName: string;
     projectStartDate: Date;
     projectEndDate: Date;
+    projectBudget: number;
     participationsNumber: string;
     participationsInfo: { staffId: number; startDate: Date; endDate: Date }[];
     clientId: string;
@@ -47,12 +48,12 @@ export class ProjectsService {
     newProject.projectName = projectInfo.projectName;
     newProject.startDate = projectInfo.projectStartDate;
     newProject.endDate = projectInfo.projectEndDate;
+    newProject.budget = projectInfo.projectBudget;
 
     newProject.Client = await this.clientsRepository.findOne(
       projectInfo.clientId,
     );
     newProject.isCompleted = false;
-    newProject.budget = 1000 * 10000;
 
     const newProjectResult = await this.projectsRepository.save(newProject);
     // const newProjectId = newProjectResult.id;
